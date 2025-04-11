@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nsdeneme</title>
+  <!-- jQuery CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f9f9f9;
+    }
+    h2 {
+      color: #333;
+    }
+    input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      width: 300px;
+    }
+    li {
+      padding: 10px;
+      background: #e2e8f0;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+    li:hover {
+      background: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Liste Araması</h2>
+  <input type="text" id="arama" placeholder="Kelime ara...">
+
+  <ul id="liste">
+    <li>Elma</li>
+    <li>Armut</li>
+    <li>Muz</li>
+    <li>Çilek</li>
+    <li>Karpuz</li>
+    <li>Üzüm</li>
+    <li>Portakal</li>
+  </ul>
+
+  <script>
+    $(document).ready(function(){
+      $("#arama").on("keyup", function() {
+        var deger = $(this).val().toLowerCase();
+        $("#liste li").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(deger) > -1);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
